@@ -15,10 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from interfaz.views import inforecetas, recetas
+from interfaz.views import detalleProducto, ingresoIngredientes, ingresoNombreIngredientes, listaIngredientes, menuPrincipal
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', recetas, name='index'),
+    path('', menuPrincipal, name="menup"),
     path('admin/', admin.site.urls),
-    path('recetas/', inforecetas, name='receta')
+    path('ingredientes/', ingresoIngredientes, name='index'),
+    path('nombreReceta/', ingresoNombreIngredientes),
+    path('lista_ingredientes/', listaIngredientes),
+    path('lista_ingredientes/detalle_receta/<int:id>', detalleProducto, name='receta'),
+    path('ingredientes/detalle_receta/<int:id>', detalleProducto),
+    path('nombreReceta/detalle_receta/<int:id>', detalleProducto),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

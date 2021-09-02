@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/nombre_ingrediente.css" %}'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Digite El nombre de su receta</h1>
+    <form method="get">
+        <div class="form-group col-md-2">
+            <input class="form-control" placeholder="Nombre" type="text" name="buscar"><br>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <!-- <button type="submit" class="btn btn-danger"><a href="/"></a>Volver</button> -->
+        </div>
+    </form>
+    {% if queryset is null %}
+    {% else %}
+    <table class="table ">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>ingrediente 1</th>
+                <th>ingrediente 2</th>
+                <th>ingrediente 3</th>
+                <th>ingrediente 4</th>
+                <th>ingrediente 5</th>
+                <th>Receta</th>
+                <th>Imagen</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <td>{{post.id}}</td>
+                <td>{{post.nombre}}</td>
+                <td>{{post.ingrediente1}}</td>
+                <td>{{post.ingrediente2}}</td>
+                <td>{{post.ingrediente3}}</td>
+                <td>{{post.ingrediente4}}</td>
+                <td>{{post.ingrediente5}}</td>
+                <td><p id=tdreceta>{{post.receta}}</p></td>
+                {% if post.imagen %}
+                <td><img src="{{ post.imagen.url }}" alt=""></td>
+                {% endif %}
+                <td><a href="detalle_receta/{{post.id}}">Ver</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>

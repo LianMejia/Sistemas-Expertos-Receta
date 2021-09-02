@@ -1,0 +1,19 @@
+.bodyInicio{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: floralwhite;
+}
+
+.agrupacion{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px black;
+    background: white;
+    padding: 20px 20px 20px 20px;
+}
+
+h1{
+    color: red;
+}

@@ -1,0 +1,36 @@
+*{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+h1{
+    font-weight: bold;
+}
+
+/* #tdreceta{
+    text-overflow: ellipsis;
+    width: 100vh;
+    white-space: nowrap;
+    overflow: hidden;
+} */
+
+/* img{
+    width: 100vh;
+} */
+
+table{
+    width: 100vh;
+}
+
+img{
+    width: 100%;
+}
+
+#tdreceta{
+    text-overflow: ellipsis;
+    width: 100vh;
+    overflow: hidden;
+    white-space: nowrap;
+}
